@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Restaurant Menu</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav-bar">
+        <a href="/" class="logo"><img src="assets/logos/logo-dark.png" alt="Taste Haven Logo"></a>
+        <div class="nav-actions">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="ri-moon-line"></i>
+            </button>
+            <a href="add-to-cart-page.html" class="cart-icon" aria-label="View cart">
+                <i class="ri-shopping-cart-2-line"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-decoration"></div>
+        <div class="hero-decoration"></div>
+        <div class="hero-decoration"></div>
+        
+        <div class="hero-content">
+            <h1>Delicious Food</h1>
+            <p>Experience the taste of perfection with our carefully crafted menu</p>
+            <button class="cta-button" id="start-order-btn">
+                <span>Start Order</span>
+                <i class="ri-arrow-right-line"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="search-section">
+            <div class="search-container">
+                <i class="ri-search-line search-icon"></i>
+                <input type="text" id="search-input" placeholder="Search for delicious food..." class="search-input">
+                <button id="clear-search" class="clear-search-btn" style="display: none;">
+                    <i class="ri-close-line"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="category-selector">
+            <!-- Category buttons will be injected by JavaScript -->
+        </section>
+
+        <section class="food-items">
+            <!-- Food cards will be injected by JavaScript -->
+            <div class="loading-skeleton" id="loading-skeleton">
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+            </div>
+        </section>
+    </main>
+
+    <div class="cart-summary" id="cart-summary">
+        <div class="cart-total">
+            <div><span class="cart-item-count">0</span> items</div>
+            <div class="cart-total-price">$0.00</div>
+        </div>
+        <a href="add-to-cart-page.html"><button class="btn btn-primary checkout-btn">
+            <span>Checkout</span>
+            <i class="ri-shopping-bag-line"></i>
+        </button></a>
+    </div>
+
+    <!-- Favorites Toast -->
+    <div id="favorites-toast" class="toast hidden">
+        <i class="ri-heart-fill"></i>
+        <span>Added to favorites!</span>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top hidden" aria-label="Back to top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+
+    <script src="js/config.js"></script>
+    <script src="js/sheets-api.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
+    <script>
+        // Simple animation for demonstration
+        document.querySelectorAll('.btn-secondary').forEach(button => {
+            button.addEventListener('click', function() {
+                if (!this.disabled) {
+                    document.querySelector('.cart-icon').classList.add('pulse');
+                    setTimeout(() => {
+                        document.querySelector('.cart-icon').classList.remove('pulse');
+                    }, 500);
+                }
+            });
+        });
+
+        // Category selection
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelector('.category-btn.active').classList.remove('active');
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

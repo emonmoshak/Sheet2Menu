@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - Digital Restaurant Menu</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cart-page.css"> <!-- Additional styles for cart page -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="page-header">
+        <a href="index.html" class="back-button">
+            <i class="ri-arrow-left-s-line"></i>
+            <span>Back to Menu</span>
+        </a>
+        <a href="/" class="logo"><img src="assets/logos/logo-dark.png" alt="Taste Haven Logo"></a>
+    </header>
+
+    <main class="cart-container">
+        <div class="cart-items-list">
+            <!-- Cart items will be injected here by JavaScript -->
+            <div class="empty-cart-message">
+                <h3>Your cart is empty!</h3>
+                <p>Add some delicious food from the menu to get started.</p>
+                <a href="index.html" class="btn btn-primary">Browse Menu</a>
+            </div>
+        </div>
+
+        <div class="order-summary-card">
+            <h2>Order Summary</h2>
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="summary-subtotal">$0.00</span>
+            </div>
+            <div class="summary-row">
+                <span>Tax (10%)</span>
+                <span id="summary-tax">$0.00</span>
+            </div>
+            <div class="summary-row discount-row" style="display: none;">
+                <span>Discount</span>
+                <span id="summary-discount">-$0.00</span>
+            </div>
+
+            <hr>
+            <div class="summary-row total">
+                <span>Total</span>
+                <span id="summary-total">$2.99</span>
+            </div>
+                        <div class="customer-details">
+                <div class="detail-group">
+                    <label for="customer-name">Your Name</label>
+                    <input type="text" id="customer-name" placeholder="Enter your name">
+                </div>
+                <div class="detail-group">
+                    <label for="table-number">Table Number</label>
+                    <input type="text" id="table-number" placeholder="Enter your table number">
+                </div>
+            </div>
+            <div class="promo-code">
+                <input type="text" id="promo-input" placeholder="Enter promo code">
+                <button id="apply-promo-btn" class="btn">Apply</button>
+            </div>
+            <div id="promo-message"></div>
+            <button id="checkout-btn" class="btn btn-primary btn-full">
+                <i class="ri-whatsapp-line"></i>
+                Order via WhatsApp
+            </button>
+            <a href="index.html" class="continue-shopping-link">Continue Ordering</a>
+            <div id="order-success-message" style="display: none;"></div>
+        </div>
+    </main>
+
+    <script src="js/whatsapp-config.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
